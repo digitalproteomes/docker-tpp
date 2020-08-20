@@ -39,21 +39,6 @@ RUN mkdir -p /usr/local/tpp \
 # Get TPP sources configure, make, install and cleanup
 #
 # NOTE The version of comet in 5.2.0 doesn't compile.
-# RUN cd /tmp \
-#     && mkdir tpp-src \
-#     && wget -O tpp.tgz $TPPLINK \
-#     && tar -zxf tpp.tgz -C tpp-src --strip-components 1 \
-#     && cd /tmp/tpp-src/extern \
-#     && rm comet_source_2018014.zip \
-#     && wget -O comet_2019015.zip https://sourceforge.net/projects/comet-ms/files/comet_2019015.zip/download \
-#     && unzip comet_2019015.zip \
-#     && cd /tmp/tpp-src \
-#     && sed -i 's/2018014/2019015/g' extern/Makefile \
-#     && make all \
-#     && make install \
-#     && cd /tmp \
-#     && rm -rf tpp-src \
-#     && rm tpp.tgz
 RUN mkdir /tmp/tpp-src \
     && wget -O /tmp/tpp.tgz $TPPLINK \
     && tar -zxf /tmp/tpp.tgz -C /tmp/tpp-src --strip-components 1 \
