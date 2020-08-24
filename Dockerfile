@@ -80,13 +80,13 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 ## Add site configurations
-COPY tpp_443.conf /etc/apache2/sites-available/
+COPY tpp_80.conf /etc/apache2/sites-available/
 
 ## Enable Apache modules required for TPP
 RUN a2enmod rewrite \
     && a2enmod cgid.load \
-    && a2enmod ssl \
-    && a2ensite tpp_443
+    && a2dissite 000-default \
+    && a2ensite tpp_80
 
 
 ###################
@@ -99,4 +99,4 @@ RUN ln -s /digitalproteomes /var/www/html
 RUN groupadd -g 1001 digitalproteomes
 RUN usermod -a -G digitalproteomes www-data
 
-EXPOSE 443
+EXPOSE 80
