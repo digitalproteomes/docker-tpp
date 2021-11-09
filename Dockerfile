@@ -75,7 +75,7 @@ ENV PATH=/usr/local/tpp/bin:$PATH
 ################
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install apache2=2.4.29-1ubuntu4.14 \
+    && apt-get -y --no-install-recommends install apache2=2.4.29-1ubuntu4.19 \
     xsltproc=1.1.29-5ubuntu0.2 \
     && rm -rf /var/lib/apt/lists/*
 
