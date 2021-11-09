@@ -1,6 +1,6 @@
 FROM digitalproteomes/gosu:version-1.0
 
-LABEL maintainer="Patrick Pedrioli" description="A container for the Trans Proteomics Pipeline" version="5.2.0"
+LABEL maintainer="Patrick Pedrioli" description="A container for the Trans Proteomics Pipeline" version="6.0.0"
 
 ARG TPPLINK=https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v6.0%20%28OmegaBlock%29%20rev%200/TPP_6.0.0-src.tgz/download
 
@@ -10,16 +10,16 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install pre-requisites for TPP and get_prophet_prob.py
 RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential=12.4ubuntu1 \
-       perl=5.26.1-6ubuntu0.3 \
+       perl=5.26.1-6ubuntu0.5 \
        zlib1g-dev=1:1.2.11.dfsg-0ubuntu2 \
        libghc-bzlib-dev=0.5.0.5-6build1 \
        gnuplot=5.2.2+dfsg1-2ubuntu1 \
        unzip=6.0-21ubuntu1 \
        expat=2.2.5-3ubuntu0.2 \
        libexpat1-dev=2.2.5-3ubuntu0.2 \
-       git=1:2.17.1-1ubuntu0.7 \
+       git=1:2.17.1-1ubuntu0.9 \
        python3=3.6.7-1~18.04 \
-       python3-pip=9.0.1-2.3~ubuntu1.18.04.2 \
+       python3-pip=9.0.1-2.3~ubuntu1.18.04.5 \
        python3-setuptools=39.0.1-2 \
     && rm -rf /var/lib/apt/lists/* \
     && pip3 install --no-cache-dir pandas==1.1.0 \
