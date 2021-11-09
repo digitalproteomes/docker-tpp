@@ -2,7 +2,7 @@ FROM digitalproteomes/gosu:version-1.0
 
 LABEL maintainer="Patrick Pedrioli" description="A container for the Trans Proteomics Pipeline" version="5.2.0"
 
-ARG TPPLINK=https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v5.2%20%28Flammagenitus%29%20rev%200/TPP_5.2.0-src.tgz/download
+ARG TPPLINK=https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v6.0%20%28OmegaBlock%29%20rev%200/TPP_6.0.0-src.tgz/download
 
 ## Let apt-get know we are running in noninteractive mode
 ENV DEBIAN_FRONTEND noninteractive
@@ -42,10 +42,10 @@ RUN mkdir -p /usr/local/tpp \
 RUN mkdir /tmp/tpp-src \
     && wget -O /tmp/tpp.tgz $TPPLINK \
     && tar -zxf /tmp/tpp.tgz -C /tmp/tpp-src --strip-components 1 \
-    && rm /tmp/tpp-src/extern/comet_source_2018014.zip \
-    && wget -O /tmp/tpp-src/extern/comet_2019015.zip https://sourceforge.net/projects/comet-ms/files/comet_2019015.zip/download \
-    && unzip /tmp/tpp-src/extern/comet_2019015.zip -d /tmp/tpp-src/extern \
-    && sed -i 's/2018014/2019015/g' /tmp/tpp-src/extern/Makefile \
+    # && rm /tmp/tpp-src/extern/comet_source_2018014.zip \
+    # && wget -O /tmp/tpp-src/extern/comet_2019015.zip https://sourceforge.net/projects/comet-ms/files/comet_2019015.zip/download \
+    # && unzip /tmp/tpp-src/extern/comet_2019015.zip -d /tmp/tpp-src/extern \
+    # && sed -i 's/2018014/2019015/g' /tmp/tpp-src/extern/Makefile \
     && make -C /tmp/tpp-src all \
     && make -C /tmp/tpp-src install \
     && rm -rf /tmp/tpp-src \
@@ -56,7 +56,7 @@ WORKDIR /usr/local/tpp/bin
 # Add patched XPRESS binary
 #
 # NOTE: This bug will be fixed in future releases
-COPY Patches/XPressPeptideParser /usr/local/tpp/bin/
+# COPY Patches/XPressPeptideParser /usr/local/tpp/bin/
 
 # Set up PERL modules
 ENV PERL_MM_USE_DEFAULT=1
