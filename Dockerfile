@@ -15,12 +15,13 @@ RUN apt-get update \
        libghc-bzlib-dev=0.5.0.5-6build1 \
        gnuplot=5.2.2+dfsg1-2ubuntu1 \
        unzip=6.0-21ubuntu1 \
-       expat=2.2.5-3ubuntu0.2 \
-       libexpat1-dev=2.2.5-3ubuntu0.2 \
-       git=1:2.17.1-1ubuntu0.9 \
+       expat=2.2.5-3ubuntu0.7 \
+       libexpat1-dev=2.2.5-3ubuntu0.7 \
+       git \
        python3=3.6.7-1~18.04 \
        python3-pip=9.0.1-2.3~ubuntu1.18.04.5 \
        python3-setuptools=39.0.1-2 \
+       xmlstarlet=1.6.1-2 \
     && rm -rf /var/lib/apt/lists/* \
     && pip3 install --no-cache-dir pandas==1.1.0 \
        bs4==0.0.1
@@ -75,7 +76,7 @@ ENV PATH=/usr/local/tpp/bin:$PATH
 ################
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install apache2=2.4.29-1ubuntu4.19 \
+    && apt-get -y --no-install-recommends install apache2 \
     xsltproc=1.1.29-5ubuntu0.2 \
     && rm -rf /var/lib/apt/lists/*
 
