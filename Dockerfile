@@ -2,7 +2,7 @@ FROM digitalproteomes/gosu:version-1.0
 
 LABEL maintainer="Patrick Pedrioli" description="A container for the Trans Proteomics Pipeline" version="6.0.0"
 
-ARG TPPLINK=https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v6.0%20%28OmegaBlock%29%20rev%200/TPP_6.0.0-src.tgz/download
+ARG TPPLINK=https://sourceforge.net/projects/sashimi/files/Trans-Proteomic%20Pipeline%20%28TPP%29/TPP%20v6.1%20%28Parhelion%29%20rev%200/TPP_6.1.0-src.tgz/download
 
 ## Let apt-get know we are running in noninteractive mode
 ENV DEBIAN_FRONTEND noninteractive
