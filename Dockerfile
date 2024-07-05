@@ -101,3 +101,7 @@ RUN groupadd -g 1001 digitalproteomes
 RUN usermod -a -G digitalproteomes www-data
 
 EXPOSE 80
+
+# Gosu approach is giving permission issues when used with docker --user argument
+ENTRYPOINT []
+CMD ["/bin/bash"]
